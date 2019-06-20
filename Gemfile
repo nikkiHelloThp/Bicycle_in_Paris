@@ -29,7 +29,8 @@ gem 'jbuilder', '~> 2.5'
 # gem 'redis', '~> 4.0'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
-
+gem 'httparty', '~> 0.17.0'
+gem 'geocoder', '~> 1.5', '>= 1.5.1'
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
 

@@ -1,0 +1,18 @@
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Station</th>
+      <th scope="col">Free bikes</th>
+      <th scope="col">Empty slots</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @availabilities.limit(5).each do |availability|%>
+    <tr>
+      <td><%= availability.name %></td>
+      <td><%= availability.free_bikes %></td>
+      <td><%= availability.empty_slot %></td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
