@@ -6,7 +6,7 @@ production:
 :queues:
   - default
   - mailers
-  # :schedule:
-  # hello_world:
-  #   cron: ''   # Runs once per minute
-  #   class: HelloWorld
+  :schedule:
+  availabilities_update:
+    cron: '10 * * * * *'
+    class: Availabilities
