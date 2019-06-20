@@ -31,6 +31,7 @@ gem 'jbuilder', '~> 2.5'
 # gem 'bcrypt', '~> 3.1.7'
 gem 'httparty', '~> 0.17.0'
 gem 'geocoder', '~> 1.5', '>= 1.5.1'
+gem 'sidekiq-scheduler', '~> 3.0'
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
 
