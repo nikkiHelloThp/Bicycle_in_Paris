@@ -1,28 +1,4 @@
-<table class="table">
-  <thead>
-    <tr>
-      <th scope="col">Station</th>
-      <th scope="col">Free bikes</th>
-      <th scope="col">Empty slots</th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @availabilities.limit(5).each do |availability|%>
-      <tr>
-        <td><%= availability.name %></td>
-        <td class="text-danger"><%= availability.free_bikes %></td>
-        <td><%= availability.empty_slot %></td>
-        <td><%= availability.latitude %></td>
-        <td><%= availability.longitude %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-<!--<p>thp(9 rue bergere) = latitude: 48.872131 longitude: 2.346660</p>
-<p>'latitude:'<%=@latitude%>, 'longitude:'<%=@longitude%></p>
-<p><%=@address%></p>
-<p><%=@thp%></p>-->
-<p><b>search result address: <%=@thpaddress.last.address%></b></p>
+<p><b>search result address: <%=@thpaddress.last.address%> | coordinates: <%= @thp %></b></p>
 
 <table class="table table-dark">
   <thead>
@@ -30,6 +6,8 @@
       <th scope="col">Station</th>
       <th scope="col">Free bikes</th>
       <th scope="col">Empty slots</th>
+      <th>latitude</th>
+      <th>longitude</th>
     </tr>
   </thead>
   <tbody>
@@ -37,9 +15,6 @@
     <tr>
       <td><%= near.name %></td>
       <td class="text-danger"><%= near.free_bikes %></td>
-      <!--<td class="text-danger"><%# near.free_bikes if near.free_bikes <= 5 %></td>
-      <td class="text-warnig"><%# near.free_bikes if near.free_bikes <=10 %></td>
-      <td class="text-succes"><%# near.free_bikes if near.free_bikes > 10 %></td>-->
       <td><%= near.empty_slot %></td>
       <td><%= near.latitude %></td>
       <td><%= near.longitude %></td>

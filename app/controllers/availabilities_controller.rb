@@ -1,7 +1,4 @@
 class AvailabilitiesController < ApplicationController
-	# attr_accessor :latitude, :longitude
-	# geocoded_by :latitude, :longitude
-	# after_validation :geocode, :if => :latitude_changed? || :if => :longitude_changed?
 	def index
 	response = HTTParty.get('http://api.citybik.es/v2/networks/velib', format: :plain)
 	@response = JSON.parse response, symbolize_names: true

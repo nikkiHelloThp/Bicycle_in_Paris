@@ -6,7 +6,7 @@ production:
 :queues:
   - default
   - mailers
-  :schedule:
-  availabilities_update:
-    cron: '10 * * * * *'
-    class: Availabilities
+:schedule:
+availabilities_update:
+  cron: '10 * * * * *'
+  class: AvailabilitiesUpdateJob
