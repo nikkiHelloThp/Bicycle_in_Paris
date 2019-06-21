@@ -1,5 +1,5 @@
 class AvailabilitiesUpdateJob < ApplicationJob
-	self.queue_adapter = :sidekiq
+  self.queue_adapter = :sidekiq
   queue_as :default
 
   def perform(*args)
@@ -7,14 +7,18 @@ class AvailabilitiesUpdateJob < ApplicationJob
 	@response = JSON.parse response, symbolize_names: true
 	@response = @response[:network][:stations]
 		
-		@response.each do |patch|
-			@availability = Availability.find_by(uid: patch[:id])
-			next unless @availability.empty_slot != patch[:empty_slots]
+		@response.each do |params|
+			@availability = Availability.find_by(uid: params[:id])
+			if @availability.empty_slot != params[:empty_slots]
 				@availability.update(
-					empty_slot: patch[:empty_slots],
-					has_bikes: patch[:has_bikes],
-					free_bikes: patch[:free_bikes]
-				)
+					free_bikes: params[:free_bikes],
+					empty_slot: params[:empty_slots]
+					)
+				if @availability.save
+					p 'updated'
+				else
+					p 'No update needed'
+				end		
 			end
 		end
   end

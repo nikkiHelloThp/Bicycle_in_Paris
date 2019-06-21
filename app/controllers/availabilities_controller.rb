@@ -1,4 +1,5 @@
 class AvailabilitiesController < ApplicationController
+	before_action :set_availabilities, only: [:edit, :update]
 	def index
 	response = HTTParty.get('http://api.citybik.es/v2/networks/velib', format: :plain)
 	@response = JSON.parse response, symbolize_names: true
@@ -13,7 +14,16 @@ class AvailabilitiesController < ApplicationController
 				name: availability[:name],
 				uid: availability[:id]
 			)
-		end
+		end	
 	end
 
+	def edit
+	end
+
+	def update
+	end
+
+	def set_availabilities
+		@availability = Availability.find_by(uid: uid)
+	end
 end
