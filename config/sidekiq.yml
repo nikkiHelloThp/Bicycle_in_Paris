@@ -8,5 +8,5 @@ production:
   - mailers
 :schedule:
   availabilities_update_job:
-    every: '60s'
+    every: '600s'
     class: AvailabilitiesUpdateJob
