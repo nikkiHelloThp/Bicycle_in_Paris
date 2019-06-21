@@ -1,24 +1,14 @@
 # README
+https://available-stations-around.herokuapp.com/
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+# Api
 
-Things you may want to cover:
+Je veux une app rails qui me calcule les 5 statios de velib le plus proche du bureau de THP et le nombre de vélo disponible.
 
-* Ruby version
+API Url: http://api.citybik.es/v2/
 
-* System dependencies
+Une attention particulière sera portée au tests et au fait de ne pas bouriner l'API a chaque request.
+Le système doit être quasi instantanné la plupart du temps.
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+- **bonus**: Je veux un bouton refresh qui raffraichi les données sans recharger la page.
+- **extra bonus**: Je voudrais pouvoir spécifier l'addresse de départ.
