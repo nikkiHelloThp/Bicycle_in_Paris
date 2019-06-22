@@ -7,6 +7,5 @@ class LocationsController < ApplicationController
 			@thp = @thpaddress.first.coordinates
       @locations = Availability.near(@thp, 1, :order => :distance).take(5)
     end
-
   end
 end

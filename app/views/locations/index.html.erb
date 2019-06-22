@@ -19,6 +19,7 @@
   <thead>
     <tr>
       <th scope="col">Stations</th>
+      <th scope="col">Distance</th>
       <th scope="col">Free Bikes</th>
       <th scope="col">Empty Slot</th>
       <th>Latitude</th>
@@ -31,6 +32,7 @@
     <% @locations.each do |location| %>
       <tr>
         <td><%= location.name %></td>
+        <td><%= mi_to_m(location.distance) %> meters</td>
         <td class="text-danger"><%= location.free_bikes %></td>
         <td><%= location.empty_slot %></td>
         <td><%= location.latitude %></td>
