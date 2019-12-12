@@ -9,5 +9,7 @@ class LocationsController < ApplicationController
 			@thp = @thpaddress.first.coordinates
       @locations = Availability.near(@thp, 1, :order => :distance).take(5)
     end
+    # returns Geocoder::Result object
+    # @my_current_position = request.location
   end
 end
