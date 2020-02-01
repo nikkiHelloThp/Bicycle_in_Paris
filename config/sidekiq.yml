@@ -8,5 +8,5 @@ production:
   - mailers
 :schedule:
   availabilities_update_job:
-    cron: '5 * * * * *'
+    cron: '00 12 * * *'
     class: AvailabilitiesUpdateJob
