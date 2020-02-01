@@ -1,7 +1,8 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 RSpec.describe LocationsController, type: :controller do
-
   let(:valid_attributes) {
     skip("Add a hash of attributes valid for your model")
   }
@@ -19,5 +20,4 @@ RSpec.describe LocationsController, type: :controller do
       expect(response).to be_successful
     end
   end
-  
 end

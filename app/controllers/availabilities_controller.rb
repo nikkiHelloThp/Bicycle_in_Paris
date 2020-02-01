@@ -1,29 +1,23 @@
+# frozen_string_literal: true
+
 class AvailabilitiesController < ApplicationController
-	before_action :set_availabilities, only: [:edit, :update]
-	def index
-	response = HTTParty.get('http://api.citybik.es/v2/networks/velib', format: :plain)
-	@response = JSON.parse response, symbolize_names: true
-	@response = @response[:network][:stations]
-		@response.each do |availability|
-			Availability.create(
-				empty_slot: availability[:empty_slots],
-				latitude: availability[:latitude],
-				longitude: availability[:longitude],
-				has_bikes: availability[:has_bikes],
-				free_bikes: availability[:free_bikes],
-				name: availability[:name],
-				uid: availability[:id]
-			)
-		end	
-	end
-
-	def edit
-	end
-
-	def update
-	end
-
-	def set_availabilities
-		@availability = Availability.find_by(uid: uid)
-	end
+  def index
+    if Availability.none?
+      response = HTTParty.get('http://api.citybik.es/v2/networks/velib', format: :plain)
+      response_parsed = JSON.parse response, symbolize_names: true
+      stations = response_parsed[:network][:stations]
+      stations.each do |station|
+        Availability.create(
+          empty_slot: station[:empty_slots],
+          latitude: station[:latitude],
+          longitude: station[:longitude],
+          free_bikes: station[:free_bikes],
+          name: station[:name],
+          uid: station[:extra][:uid]
+        )
+      end
+    else
+      puts 'stations already exist'
+    end
+  end
 end

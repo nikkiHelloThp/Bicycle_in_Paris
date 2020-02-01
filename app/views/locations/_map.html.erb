@@ -1,29 +1,21 @@
-<div id="map"></div>
-<p><a href="https://www.maptiler.com/copyright/" target="_blank">© MapTiler</a> <a href="https://www.openstreetmap.org/copyright" target="_blank">© OpenStreetMap contributors</a></p>
+<div id="mapid"></div>
 <script>
-  var map = L.map('map').setView(
-    <% if params[:search].present? %>
-      <%= @result %>, 16
-    <% else %>
-      <%= @thp %>, 16
-    <% end %>
-  );
+  var mymap = L.map('mapid').setView(<%= @result %>, 16);
 
-  L.tileLayer('https://api.maptiler.com/maps/streets/{z}/{x}/{y}.png?key=8iUrAXD3o6WiO2JBLrr3',{
-    tileSize: 512, 
-    zoomOffset: -1,
-    minZoom: 1,
-    attribution: '<a href="https://www.maptiler.com/copyright/" target="_blank">© MapTiler</a> <a href="https://www.openstreetmap.org/copyright" target="_blank">© OpenStreetMap contributors</a>',
-    crossOrigin: true
-  }).addTo(map);
+  L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
+      attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+      maxZoom: 18,
+      id: 'mapbox/streets-v11',
+      accessToken: 'pk.eyJ1Ijoibmlra2l0aHAiLCJhIjoiY2s1enZ1czdxMDFrZDNnbnl2dWhqZTA2dyJ9.Xyy1JikoUsABvFvDI0XOqQ'
+  }).addTo(mymap);
 
-  var marker = L.marker(<%= @thp %>).addTo(map);
+  var marker = L.marker(<%= @result %>).addTo(mymap);
   marker.bindPopup("<b>Thp's Offices</b>").openPopup();
 </script>
 
 <% @locations.each_with_index do |location|%>
   <script>
-    var marker<%=location.id%> = L.marker([<%= location.latitude%>, <%= location.longitude%>]).addTo(map);
+    var marker<%=location.id%> = L.marker([<%= location.latitude%>, <%= location.longitude%>]).addTo(mymap);
     marker<%=location.id%>.bindPopup('<%= location.name %><br><%= location.free_bikes %> Bike(s) - <%= location.empty_slot %> Place(s)').openPopup();
   </script>
-<% end %> 
+<% end %>
