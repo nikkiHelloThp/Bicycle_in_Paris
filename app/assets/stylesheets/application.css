@@ -73,7 +73,7 @@ header.masthead {
   overflow: hidden;
   padding-top: calc(7rem + 72px);
   padding-bottom: 7rem;
-  background-image: url('header.jpg');
+  background-image: url('https://www.velib-metropole.fr/assets/static_files/images/background_offers.jpg');
   background-repeat: no-repeat;
   background-position: center center;
   background-attachment: scroll;
