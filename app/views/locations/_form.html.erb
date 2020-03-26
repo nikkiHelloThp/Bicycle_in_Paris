@@ -1,12 +1,11 @@
-<div class="container">
+<div class="input-group">
+	<div class="form-inline mb-5">
 	<%= form_tag root_path, :method => :get do %>
-	  <div class="form-group">
-	    <%= text_field_tag :search, params[:search], class:"form-control" %>
-	  </div>
-	  <%= submit_tag "Search Near", :name => nil, class:"btn btn-primary btn-lg btn-block" %>
+	  <%= text_field_tag :search, params[:search], class:"form-control text-center", placeholder: "Adresse..." %>
+	  <%= button_tag "<i class='fa fa-search'></i>".html_safe, :name => nil, class:"btn btn-lg btn-primary" %>
 	<% end %>
+	</div>
 </div>
-
 <% unless params[:search].present? %>
   <p align="center"><b>Default address: <%= @thp %></b></p>
 <% end %>

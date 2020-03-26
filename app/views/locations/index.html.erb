@@ -1,12 +1,71 @@
-<p id="notice"><%= notice %></p>
+<%= render "header" %>
 
-<div align="center">
-  <h1>FIND A BICYCLE</h1>
-</div>
+<section>
+  <div class="container">
+    <div class="row align-items-center">
+      <div class="col-lg-6 order-lg-2">
+        <div class="p-5">
+          <img class="img-fluid rounded-circle" src="https://www.velib-metropole.fr/media/21/download/pic_vbox.png?v=1&inline=1" alt="">
+        </div>
+      </div>
+      <div class="col-lg-6 order-lg-1">
+        <div class="p-5">
+          <h2 class="display-4">La V-Box</h2>
+          <p>La V-Box est un boîtier électronique, encastré dans le guidon, qui permet un accès direct et rapide au vélo. Ce boîtier est autonome en énergie car rechargé par la dynamo. Il communique avec la station via un émetteur/récepteur radio et peut ainsi remonter des données vers les systèmes d’information du service Vélib’.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
-<%= render "form" %>
-<%= render "table" %>
-<%= render "map" %>
+<section>
+  <div class="container">
+    <div class="row align-items-center">
+      <div class="col-lg-6">
+        <div class="p-5">
+          <img class="img-fluid rounded-circle" src="https://www.velib-metropole.fr/media/20/download/pic_fourche.png?v=1&inline=1" alt="">
+        </div>
+      </div>
+      <div class="col-lg-6">
+        <div class="p-5">
+          <h2 class="display-4">La fourche cadenas</h2>
+          <p>La fourche cadenas est un système de sécurité breveté. Commandée via la V-Box, la fourche cadenas permet de sécuriser le vélo de 2 manières complémentaires.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <div class="row align-items-center">
+      <div class="col-lg-6 order-lg-2">
+        <div class="p-5">
+          <img class="img-fluid rounded-circle" src="https://www.velib-metropole.fr/media/18/download/pic_assistance-elec.png?v=1&inline=1" alt="">
+        </div>
+      </div>
+      <div class="col-lg-6 order-lg-1">
+        <div class="p-5">
+          <h2 class="display-4">Le VAE</h2>
+          <p>Grâce à 30% de vélo à assistance électrique (VAE), les déplacements seront rendus beaucoup plus simples : les usagers Vélib’ verront les distances se raccourcir et joueront des reliefs sans effort. Dotés d’une autonomie de 50 km et pouvant atteindre une vitesse de 25 km/heure, ces vélos à assistance électrique constitueront une véritable alternative à l’usage d’un véhicule individuel polluant.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="trouver">
+  <div class="container">
+    <p id="notice"><%= notice %></p>
+
+    <h1 align="center">Trouver...</h1>
+
+    <%= render "form" %>
+    <%= render "table" %>
+    <%= render "map" %>
+
+  </div>
+</section>
 
 <!-- <script type="text/javascript">
 	setTimeout("location.reload();",360000);

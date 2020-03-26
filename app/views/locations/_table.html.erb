@@ -1,26 +1,27 @@
-<table class="table">
-  <thead>
-    <tr>
-      <th scope="col">Stations</th>
-      <th scope="col">Distance</th>
-      <th scope="col">Free Bikes</th>
-      <th scope="col">Empty Slot</th>
-      <th>Latitude</th>
-      <th>Longitude</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @locations.each do |location| %>
+<div class="container">
+  <table class="table table-responsive text-center">
+    <thead>
       <tr>
-        <td><%= location.name %></td>
-        <td><%= mi_to_m(location.distance) %> meters</td>
-        <td class="text-danger"><%= location.free_bikes %></td>
-        <td><%= location.empty_slot %></td>
-        <td><%= location.latitude %></td>
-        <td><%= location.longitude %></td>
+        <th scope="col">Stations</th>
+        <th scope="col">Distance</th>
+        <th scope="col">Free Bikes</th>
+        <th scope="col">Empty Slot</th>
+        <th>Latitude</th>
+        <th>Longitude</th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
+    </thead>
+
+    <tbody>
+      <% @locations.each do |location| %>
+        <tr>
+          <td><%= location.name %></td>
+          <td><%= mi_to_m(location.distance) %> meters</td>
+          <td class="text-danger"><%= location.free_bikes %></td>
+          <td><%= location.empty_slot %></td>
+          <td><%= location.latitude %></td>
+          <td><%= location.longitude %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>  
+</div>
